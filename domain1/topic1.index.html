@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPTD Prep - Chủ đề 1: Kỹ năng Giao tiếp và Gây ảnh hưởng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+        .step-active { color: #2563eb; border-bottom: 3px solid #2563eb; }
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        
+        /* Tối ưu hóa chiều cao nội dung để không phải cuộn */
+        #content-viewport { flex: 1; overflow-y: auto; padding-bottom: 80px; } /* Space for footer */
+        .sub-card { display: none; }
+        .sub-card.active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Thống nhất chiều cao textarea chiêm nghiệm */
+        #reflection-input { height: 180px; resize: none; }
+
+        /* Tùy chỉnh radio button trắc nghiệm */
+        .quiz-option input[type="radio"]:checked + span { color: #2563eb; font-weight: 600; }
+        .quiz-option input[type="radio"]:checked + span::before { border-color: #2563eb; background-color: #2563eb; box-shadow: inset 0 0 0 3px white; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <header class="h-16 border-b border-slate-200 bg-white flex items-center px-6 justify-between shrink-0 shadow-sm z-10 relative">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-base text-slate-800">Chủ đề 1</h1>
+                <p class="text-xs text-slate-500 font-medium">Kỹ năng Giao tiếp và Gây ảnh hưởng</p>
+            </div>
+        </div>
+        
+        <div id="step-nav" class="flex gap-6 h-full items-center">
+            <button onclick="goToMainStep(0)" id="step-btn-0" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">1</span> <span class="hidden md:block">Kiến thức</span>
+            </button>
+            <button onclick="goToMainStep(1)" id="step-btn-1" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">2</span> <span class="hidden md:block">Tình huống</span>
+            </button>
+            <button onclick="goToMainStep(2)" id="step-btn-2" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">3</span> <span class="hidden md:block">Chiêm nghiệm</span>
+            </button>
+            <button onclick="goToMainStep(3)" id="step-btn-3" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">4</span> <span class="hidden md:block">Ôn tập</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="content-viewport" class="p-4 md:p-8 bg-slate-100">
+        <div class="max-w-5xl mx-auto h-full flex flex-col">
+            
+            <section id="task-0" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-4 flex items-center justify-between">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 1: Kiến thức trọng tâm</span>
+                    <div class="text-sm text-slate-500 font-medium">Mục <span id="k-current-page">1</span>/3</div>
+                </div>
+
+                <div id="k-card-0" class="sub-card active bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"><i class="fas fa-id-card text-blue-500"></i> 1. Vai trò của chuyên gia Talent Development (TD) trong giao tiếp</h2>
+                    <div class="prose prose-slate max-w-none text-slate-700 space-y-5 leading-relaxed text-[15px]">
+                        <p class="bg-slate-50 p-4 rounded-lg border-l-4 border-blue-300">Chuyên gia TD được kỳ vọng sẽ tương tác với các giám đốc điều hành, trình bày rõ cách họ giúp tổ chức đạt được mục tiêu, và định hình tầm nhìn.</p>
+                        <p>Để gây ảnh hưởng hiệu quả, chuyên gia TD phải có khả năng <strong class="text-blue-700">tùy chỉnh thông điệp</strong>, đọc ngôn ngữ cơ thể của người học, tạo điều kiện cho các phiên hỏi đáp, xử lý các câu hỏi hóc búa và truyền tải thông điệp đáng nhớ.</p>
+                        <p>Bước đầu tiên trong giao tiếp hiệu quả là quyết định sẽ giao tiếp điều gì bằng cách liệt kê và lên ý tưởng chi tiết, đảm bảo sự chuyển ý logic (<strong class="text-blue-700">segues</strong>) để tránh sự lan man.</p>
+                        <p>Người làm TD phải là người giao tiếp xác thực (<strong class="text-blue-700">authentic</strong>) để tạo dựng sự tin tưởng. TD phải luôn chuẩn bị kỹ lưỡng, lường trước các câu hỏi và sử dụng công cụ hỗ trợ trực quan khi thuyết trình.</p>
+                    </div>
+                </div>
+
+                <div id="k-card-1" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"><i class="fas fa-star text-blue-500"></i> 2. Các nguyên tắc để thông tin và gây ảnh hưởng hiệu quả</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-slate-700 text-[14px]">
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Giao tiếp xác thực (Communicate authentically):</strong> Gây ảnh hưởng dễ dàng hơn khi dựa trên sự tin tưởng thực sự.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Xây dựng mối quan hệ dài hạn:</strong> Đừng chỉ là chiến lược gia ngắn hạn tập trung vào nhu cầu của bản thân.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Làm rõ kết quả:</strong> Biết trước mục tiêu của cuộc trò chuyện và duy trì một tư duy tích cực.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Nói đúng "ngôn ngữ" (Speak the right language):</strong> Dùng từ ngữ phù hợp với khán giả.</span></li>
+                            <li class="flex items-start gap-2 p-2 bg-blue-50 rounded-md border border-blue-200"><i class="fas fa-star text-blue-600 mt-1">
+                                </i><span><strong class="text-blue-800">Bắt đầu từ kết quả cuối cùng (Start with the bottom line):</strong> Trình bày kết quả mong muốn ngay từ đầu để đạt được sự tin tưởng. <strong class="text-xs">(Trọng tâm thi)</strong></span></li>
+                            <li class="flex items-start gap-2 p-2 bg-blue-50 rounded-md border border-blue-200"><i class="fas fa-star text-blue-600 mt-1">
+                                </i><span><strong class="text-blue-800">Xác định giá trị cá nhân của đối tác:</strong> Đặt câu hỏi quan trọng nhất: "Bạn muốn gì?" (What do you want?). <strong class="text-xs">(Trọng tâm thi)</strong></span></li>
+                        </ul>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Kể chuyện bằng dữ liệu (Use data to tell a relevant story):</strong> Dữ liệu tạo thành câu chuyện có tính liên quan.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Đồng thời tự bộc lộ (Reciprocate self-disclosure):</strong> Chia sẻ thông tin cá nhân phù hợp để xây dựng mối quan hệ.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Sử dụng sức mạnh ngôn ngữ:</strong> Gọi tên, sử dụng ngôn ngữ giác quan của họ để thiết lập quan hệ.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Đạt được sự đồng thuận:</strong> Cấu trúc cuộc giao tiếp để cả hai đứng cùng một chiến tuyến.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Thể hiện sự thấu hiểu và tôn trọng:</strong> Cho thấy đối phương được chấp nhận và lắng nghe.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-500 mt-1">
+                                </i><span><strong>Duy trì sự trung lập và khách quan (Remain neutral and objective):</strong> Giữ thái độ trung lập thay vì thách thức người khác.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="k-card-2" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"><i class="fas fa-fire-extinguisher text-red-500"></i> 3. Giảm leo thang và Giải quyết sự tức giận (Defusing Anger)</h2>
+                    <div class="prose prose-slate max-w-none text-slate-700 text-[15px] space-y-4">
+                        <p>Chuyên gia TD thường phải đối mặt với những cá nhân đang tức giận. Các chiến thuật bao gồm:</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none pl-0 mt-0 marker:text-blue-500">
+                            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-400"></i> Lắng nghe để xác định nguyên nhân sự tức giận.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-400"></i> Tránh cá nhân hóa lời phàn nàn và tập trung vào sự thật (facts).</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-400"></i> Thể hiện sự đồng cảm và tránh phòng thủ.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-400"></i> Hỏi các câu hỏi làm rõ để hiểu sự tức giận của họ.</li>
+                            <li class="flex items-center gap-2 bg-yellow-50 p-1 rounded"><i class="fas fa-exclamation-triangle text-amber-500"></i> Khi logic không có tác dụng, hãy <strong class="text-amber-800">đồng ý với họ về các sự thật hoặc đồng ý rằng họ có quyền được tức giận</strong>.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-400"></i> Giải thích những gì có thể làm, đưa ra thời gian cụ thể.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-400"></i> Tóm tắt và phản hồi lại thỏa thuận để đảm bảo cả hai hiểu chung một giải pháp.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="task-1" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-4">
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 2: Tình huống ứng dụng</span>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
+                    <div class="flex items-center gap-4 mb-6 pb-4 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Trình bày kế hoạch đào tạo với Giám đốc Kinh doanh</h3>
+                            <p class="text-sm text-slate-500">Áp dụng nguyên tắc "Start with the bottom line"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6 text-[15px] leading-relaxed">
+                        <div class="p-6 bg-red-50 border-l-4 border-red-400 rounded-r-lg relative">
+                            <i class="fas fa-times-circle text-red-500 absolute top-4 right-4 text-xl"></i>
+                            <h4 class="font-bold text-red-900 mb-2">Phản ví dụ (Thất bại - Tập trung vào cái mình CÓ)</h4>
+                            <p class="text-red-800">Trưởng phòng L&D nói: "Tôi muốn tổ chức một khóa học 3 ngày về kỹ năng lắng nghe tích cực và mô hình giao tiếp 2 chiều. Khóa học này rất hay, dùng mô hình sáu chiếc mũ tư duy...".</p>
+                            <p class="text-red-900 font-medium mt-2">=> GĐKD ngắt lời: "Chúng tôi đang chạy KPI sấp mặt, không có thời gian học mấy thứ lý thuyết đó đâu."</p>
+                        </div>
+
+                        <div class="p-6 bg-green-50 border-l-4 border-green-500 rounded-r-lg relative">
+                            <i class="fas fa-check-circle text-green-600 absolute top-4 right-4 text-xl"></i>
+                            <h4 class="font-bold text-green-900 mb-2">Ví dụ tốt (Thành công - Bắt đầu từ KẾT QUẢ ĐỐI TÁC CẦN)</h4>
+                            <p class="text-green-800">L&D áp dụng nguyên tắc "Start with the bottom line". L&D nói: <span class="font-bold text-green-950">"Tôi biết mục tiêu lớn nhất của anh quý này là giảm tỷ lệ khách hàng hủy đơn ở phút chót xuống 10%. Tôi có một kế hoạch huấn luyện thực chiến chỉ mất 2 giờ mỗi tuần, tập trung đúng vào kỹ năng xử lý từ chối của sale để giúp anh đạt con số 10% đó. Anh nghĩ sao?"</span>.</p>
+                            <p class="text-green-900 font-medium mt-2">=> Phân tích: Bằng cách nói đúng "ngôn ngữ kinh doanh" và đi thẳng vào kết quả đối tác muốn, L&D dễ dàng có được cái gật đầu.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="task-2" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-4">
+                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 3: Chiêm nghiệm thực tế</span>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-slate-800 leading-snug flex-1">
+                            Lần đề xuất bị từ chối gần nhất của bạn là khi nào?
+                        </h3>
+                    </div>
+                    
+                    <p class="text-slate-700 mb-5 leading-relaxed text-[15px] bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        Hãy nhớ lại một lần bạn đề xuất một sáng kiến học tập hoặc yêu cầu ngân sách nhưng bị sếp/đối tác gạt đi. Lúc đó, bạn đã bắt đầu câu chuyện bằng những gì mình muốn làm (<strong class="text-amber-700">Wants-based</strong>) hay bằng kết quả kinh doanh mà sếp đang khao khát (<strong class="text-amber-700">Results-based</strong>)? <br><br>
+                        Nếu bây giờ được làm lại và áp dụng nguyên tắc "Bắt đầu từ kết quả cuối cùng" (<strong class="text-amber-700">Start with the bottom line</strong>), câu mở lời đầu tiên của bạn sẽ là gì để khiến họ không thể chối từ?
+                    </p>
+                    
+                    <div class="relative flex-1">
+                        <textarea id="reflection-input" placeholder="Viết câu mở lời mới của bạn tại đây... E.g., 'Để giải quyết vấn đề tăng năng suất 15% của phòng..." class="w-full h-full p-5 bg-white border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-slate-700 text-[15px] shadow-inner"></textarea>
+                    </div>
+                    <div class="flex justify-end mt-4 shrink-0">
+                        <button onclick="saveReflection()" class="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 shadow">
+                            <i class="fas fa-save"></i> Lưu & Tiếp theo
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="task-3" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-4 flex items-center justify-between">
+                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 4: Ôn tập trắc nghiệm</span>
+                    <div class="text-sm text-slate-500 font-medium">Câu hỏi <span id="q-current-page">1</span>/5</div>
+                </div>
+                
+                <div id="quiz-viewport" class="flex-1 min-h-0 relative">
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="h-16 border-t border-slate-200 bg-white flex items-center px-8 justify-between shrink-0 shadow-[0_-2px_10px_rgba(0,0,0,0.03)] z-10 relative">
+        <button id="prev-btn" onclick="goBack()" class="flex items-center gap-2 text-slate-500 hover:text-slate-800 font-medium transition-all invisible rounded-lg px-3 py-1.5 hover:bg-slate-100">
+            <i class="fas fa-chevron-left"></i> Quay lại
+        </button>
+        
+        <div class="w-64 h-2 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+            <div id="main-progress-bar" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
+        </div>
+        
+        <button id="next-btn" onclick="goNext()" class="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold transition-all rounded-lg px-4 py-1.5 hover:bg-blue-50">
+            Tiếp theo <i class="fas fa-chevron-right ml-1"></i>
+        </button>
+    </footer>
+
+    <script>
+        // Data for Topic 1 Quiz
+        const quizData = [
+            {
+                q: "A TD professional is preparing to present a new learning initiative to the C-suite. According to the principles of influencing others, what is the best strategy to gain the executives' trust right away?",
+                options: [
+                    "Provide all the supporting data and metrics first, then reveal the desired outcome.",
+                    "Start with the bottom line and present the desired outcome up front.",
+                    "Use the Socratic method to lead the executives to the conclusion.",
+                    "Share a personal story to build emotional connection before discussing business."
+                ],
+                correct: 1,
+                explanation: "Bắt đầu bằng kết quả cuối cùng (Start with the bottom line). Những chuyên gia TD biết rõ kết quả họ muốn và trình bày nó ngay từ đầu sẽ giành được sự tin tưởng và có cơ hội gây ảnh hưởng tốt hơn."
+            },
+            {
+                q: "According to Bill Treasurer, what are the four most important words a TD professional can ask to build relationships and identify the personal value of a stakeholder?",
+                options: ["\"How can I help?\"", "\"What do you think?\"", "\"What do you want?\"", "\"How do you feel?\""],
+                correct: 2,
+                explanation: "Việc hỏi câu \"Bạn muốn gì?\" (What do you want?) là quan trọng nhất để xây dựng mối quan hệ và giá trị cá nhân. Khi tìm hiểu được điều đối phương muốn trước, cơ hội gây ảnh hưởng đến họ sẽ tăng lên."
+            },
+            {
+                q: "A department manager is furious about a mandatory training schedule that conflicts with their project deadline. The TD professional has tried using logic to explain the schedule, but it is not working. What is the recommended tactic in this situation?",
+                options: [
+                    "End the conversation immediately and walk away.",
+                    "Defend the TD department's decision by citing company policy.",
+                    "Agree about the facts or the person's right to be angry.",
+                    "Tell the manager to calm down before continuing the discussion."
+                ],
+                correct: 2,
+                explanation: "Khi đối mặt với sự tức giận và logic không có tác dụng, chiến thuật hiệu quả là hãy đồng ý về các sự thật hoặc đồng ý rằng người đó có quyền được tức giận."
+            },
+            {
+                q: "Which of the following is the FIRST step a TD professional should take to defuse an angry person?",
+                options: [
+                    "Ask relevant questions to clarify the facts.",
+                    "Explain what can be done to fix the issue.",
+                    "Acknowledge the person's anger by listening to identify the cause.",
+                    "Summarize the agreement to ensure mutual understanding."
+                ],
+                correct: 2,
+                explanation: "Bước đầu tiên để xoa dịu (defuse) là phải thừa nhận sự tức giận của người đó bằng cách lắng nghe để xác định nguyên nhân gây ra cơn giận."
+            },
+            {
+                q: "A TD professional shares a brief, relevant personal experience during a consulting meeting with a new client. The client then feels comfortable sharing their own challenges. Which communication principle does this demonstrate?",
+                options: ["Speaking the right language", "Clarifying the outcomes", "Reciprocating self-disclosure", "Remaining neutral and objective"],
+                correct: 2,
+                explanation: "Việc chia sẻ thông tin cá nhân (tự bộc lộ) gửi một lời mời để người khác cũng làm như vậy (Reciprocate self-disclosure). Đây là một chiến lược hiệu quả để xây dựng mối quan hệ kinh doanh năng suất."
+            }
+        ];
+
+        let currentMainStep = 0; // 0: Knowledge, 1: Scenario, 2: Reflection, 3: Quiz
+        let currentKnowledgeCard = 0; // Sub-steps for Knowledge
+        const totalKnowledgeCards = 3;
+        let currentQuizQuestion = 0; // Sub-steps for Quiz
+
+        // Initialize
+        window.onload = () => {
+            updateUI();
+            renderQuiz();
+        };
+
+        function goToMainStep(stepIndex) {
+            if(stepIndex === 2 && currentMainStep === 1) {
+                // Moving from Scenario to Reflection
+            }
+            currentMainStep = stepIndex;
+            // Reset sub-steps when changing main steps
+            if (currentMainStep !== 0) currentKnowledgeCard = 0;
+            if (currentMainStep !== 3) {
+                // currentQuizQuestion = 0; // Don't reset quiz progress if just clicking nav
+            }
+            updateUI();
+        }
+
+        function goNext() {
+            // Logic for Knowledge Main Step (Handle sub-cards)
+            if (currentMainStep === 0) {
+                if (currentKnowledgeCard < totalKnowledgeCards - 1) {
+                    currentKnowledgeCard++;
+                    updateKnowledgeCards();
+                } else {
+                    currentMainStep++;
+                    updateUI();
+                }
+            }
+            // Logic for Scenario -> Reflection
+            else if (currentMainStep === 1) {
+                currentMainStep++;
+                updateUI();
+            }
+            // Logic for Reflection -> Quiz handled by saveReflection() button
+            else if (currentMainStep === 2) {
+                // saveReflection(); // Don't call here, it's on the specific button
+            }
+            // Logic for Quiz (Handle sub-questions)
+            else if (currentMainStep === 3) {
+                if (currentQuizQuestion < quizData.length - 1) {
+                    // Prevent going to next question if current not answered (optional)
+                    if (!document.getElementById(`feedback-${currentQuizQuestion}`).classList.contains('hidden')) {
+                        currentQuizQuestion++;
+                        updateQuizQuestions();
+                    } else {
+                        alert("Vui lòng chọn đáp án trước khi tiếp tục.");
+                    }
+                } else {
+                    // Completed Quiz
+                    alert("Bạn đã hoàn thành bài ôn tập Chủ đề 1!");
+                    // Here you could redirect to topic menu or next HTML link
+                }
+            }
+        }
+
+        function goBack() {
+            if (currentMainStep === 0 && currentKnowledgeCard > 0) {
+                currentKnowledgeCard--;
+                updateKnowledgeCards();
+            } else if (currentMainStep > 0) {
+                currentMainStep--;
+                // If going back to Quiz, set to last question
+                if(currentMainStep === 3) currentQuizQuestion = quizData.length - 1;
+                // If going back to Knowledge, set to last card
+                if(currentMainStep === 0) currentKnowledgeCard = totalKnowledgeCards -1;
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            // Update Top Nav
+            document.querySelectorAll('#step-nav button').forEach((btn, index) => {
+                btn.classList.toggle('step-active', index === currentMainStep);
+                btn.querySelector('span').classList.toggle('bg-blue-600', index === currentMainStep);
+                btn.querySelector('span').classList.toggle('text-white', index === currentMainStep);
+            });
+
+            // Update Content Panels
+            document.querySelectorAll('.main-step-content').forEach((panel, index) => {
+                panel.classList.toggle('hidden', index !== currentMainStep);
+            });
+
+            // Update Specific Sub-content
+            if (currentMainStep === 0) updateKnowledgeCards();
+            if (currentMainStep === 3) updateQuizQuestions();
+
+            // Update Footer Progress Bar
+            const totalSteps = 4; // Main steps
+            const progress = ((currentMainStep) / (totalSteps - 1)) * 100;
+            document.getElementById('main-progress-bar').style.width = `${progress}%`;
+
+            // Update Prev/Next Buttons visibility/text
+            document.getElementById('prev-btn').style.visibility = (currentMainStep === 0 && currentKnowledgeCard === 0) ? 'hidden' : 'visible';
+            
+            // Text for Next Button
+            let nextText = "Tiếp theo";
+            if (currentMainStep === 0 && currentKnowledgeCard === totalKnowledgeCards - 1) nextText = "XEM TÌNH HUỐNG";
+            if (currentMainStep === 1) nextText = "VIẾT CHIÊM NGHIỆM";
+            if (currentMainStep === 2) nextText = "VÀO ÔN TẬP"; // Not used as standard goNext()
+            if (currentMainStep === 3) {
+                if (currentQuizQuestion < quizData.length - 1) nextText = "CÂU TIẾP THEO";
+                else nextText = "HOÀN THÀNH TOPIC";
+            }
+            
+            // Hide standard next button on Reflection step, use the custom save button
+            document.getElementById('next-btn').style.display = currentMainStep === 2 ? 'none' : 'flex';
+            document.getElementById('next-btn').innerHTML = `${nextText} <i class="fas fa-chevron-right ml-1"></i>`;
+            
+            // Scroll content to top
+            document.getElementById('content-viewport').scrollTop = 0;
+        }
+
+        // --- Knowledge Card Logic ---
+        function updateKnowledgeCards() {
+            document.querySelectorAll('#task-0 .sub-card').forEach((card, index) => {
+                card.classList.toggle('active', index === currentKnowledgeCard);
+            });
+            document.getElementById('k-current-page').innerText = currentKnowledgeCard + 1;
+            // Update prev button visibility specifically for card 0
+            document.getElementById('prev-btn').style.visibility = (currentMainStep === 0 && currentKnowledgeCard === 0) ? 'hidden' : 'visible';
+            document.getElementById('content-viewport').scrollTop = 0;
+        }
+
+        // --- Reflection Logic ---
+        function saveReflection() {
+            const input = document.getElementById('reflection-input').value.trim();
+            if (input.length < 5) {
+                alert("Vui lòng chia sẻ chiêm nghiệm của bạn kỹ hơn một chút.");
+                return;
+            }
+            // localStorage.setItem('cptd_r1', input); // Optional: save locally
+            alert("Chiêm nghiệm đã được lưu tạm thời. Bắt đầu bài ôn tập ngay!");
+            currentMainStep = 3; // Move to Quiz
+            currentQuizQuestion = 0; // Reset quiz to start
+            updateUI();
+        }
+
+        // --- Quiz Logic (Hạn chế cuộn, Feedback ngay) ---
+        function renderQuiz() {
+            const container = document.getElementById('quiz-viewport');
+            container.innerHTML = ''; // Clear
+
+            quizData.forEach((data, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.id = `q-card-${index}`;
+                qDiv.className = `sub-card absolute inset-0 bg-white rounded-2xl shadow-lg border border-slate-200 p-8 overflow-y-auto ${index === 0 ? 'active' : ''}`;
+                
+                let optionsHtml = '';
+                data.options.forEach((opt, optIndex) => {
+                    optionsHtml += `
+                        <label class="quiz-option flex items-start gap-3.5 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-300 transition-all bg-white relative">
+                            <input type="radio" name="quiz-${index}" value="${optIndex}" onclick="checkAnswer(${index}, ${optIndex})" class="sr-only">
+                            <span class="w-5 h-5 rounded-full border-2 border-slate-300 mt-0.5 inline-block shrink-0 transition-all"></span>
+                            <span class="text-[14.5px] text-slate-700 leading-snug">${opt}</span>
+                        </label>
+                    `;
+                });
+
+                qDiv.innerHTML = `
+                    <p class="font-bold text-slate-800 mb-6 text-base leading-snug">Q${index+1}: ${data.q}</p>
+                    <div class="space-y-3 mb-6">
+                        ${optionsHtml}
+                    </div>
+                    <div id="feedback-${index}" class="hidden p-5 rounded-xl text-[14px] leading-relaxed border flex gap-3.5 animation: fadeIn 0.4s">
+                        <i id="feedback-icon-${index}" class="fas mt-0.5 text-lg"></i>
+                        <div>
+                            <strong id="feedback-title-${index}"></strong> <span id="feedback-text-${index}"></span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function updateQuizQuestions() {
+            document.querySelectorAll('#quiz-viewport .sub-card').forEach((card, index) => {
+                card.classList.toggle('active', index === currentQuizQuestion);
+            });
+            document.getElementById('q-current-page').innerText = currentQuizQuestion + 1;
+            document.getElementById('content-viewport').scrollTop = 0;
+            
+            // Always show standard prev/next buttons for quiz sub-steps
+            document.getElementById('prev-btn').style.visibility = 'visible';
+            document.getElementById('next-btn').style.display = 'flex';
+        }
+
+        function checkAnswer(questionIndex, selectedOption) {
+            const data = quizData[questionIndex];
+            const feedbackDiv = document.getElementById(`feedback-${questionIndex}`);
+            const fbIcon = document.getElementById(`feedback-icon-${questionIndex}`);
+            const fbTitle = document.getElementById(`feedback-title-${questionIndex}`);
+            const fbText = document.getElementById(`feedback-text-${questionIndex}`);
+
+            // Disable other options
+            const options = document.querySelectorAll(`input[name="quiz-${questionIndex}"]`);
+            options.forEach(opt => opt.disabled = true);
+            
+            // Highlight selected
+            const labels = document.querySelectorAll(`input[name="quiz-${questionIndex}"]`);
+            labels[selectedOption].parentElement.classList.add('border-slate-900', 'bg-slate-50');
+
+            feedbackDiv.classList.remove('hidden', 'bg-red-50', 'border-red-200', 'text-red-900', 'bg-green-50', 'border-green-200', 'text-green-900');
+            fbIcon.classList.remove('fa-check-circle', 'fa-times-circle', 'text-green-600', 'text-red-600');
+
+            if (selectedOption === data.correct) {
+                feedbackDiv.classList.add('bg-green-50', 'border-green-200', 'text-green-900');
+                fbIcon.classList.add('fa-check-circle', 'text-green-600');
+                fbTitle.innerText = "Chính xác!";
+            } else {
+                feedbackDiv.classList.add('bg-red-50', 'border-red-200', 'text-red-900');
+                fbIcon.classList.add('fa-times-circle', 'text-red-600');
+                fbTitle.innerText = "Chưa đúng.";
+                // Highlight the correct one
+                document.querySelectorAll(`input[name="quiz-${questionIndex}"]`)[data.correct].parentElement.classList.add('border-green-400', 'bg-green-50', 'ring-2', 'ring-green-100');
+            }
+            
+            fbText.innerText = "Giải thích: " + data.explanation;
+            
+            // Auto scroll down to feedback if needed
+            setTimeout(() => {
+                feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>
