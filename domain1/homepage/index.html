@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPTD Learning Portal - Domain 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .topic-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+    <!-- Hero Section -->
+    <header class="bg-white border-b border-slate-200 pt-16 pb-12 px-6 shadow-sm">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="w-20 h-20 bg-blue-600 text-white rounded-3xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-lg shadow-blue-200">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Chương trình Luyện thi CPTD</h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Hệ thống ôn tập tương tác chuyên sâu cho người làm L&D. Tập trung vào <span class="font-bold text-blue-600">Domain 1: Personal Capability</span>.
+            </p>
+            
+            <!-- Progress Overview -->
+            <div class="mt-8 inline-flex items-center gap-4 bg-slate-100 px-6 py-3 rounded-2xl border border-slate-200">
+                <div class="text-sm font-bold text-slate-500 uppercase tracking-widest">Tiến độ tổng quát:</div>
+                <div class="w-48 h-3 bg-white rounded-full overflow-hidden shadow-inner border border-slate-200">
+                    <div id="overall-progress-bar" class="h-full bg-green-500 w-0 transition-all duration-500"></div>
+                </div>
+                <div class="text-sm font-bold text-green-600"><span id="completed-count">0</span>/3 Hoàn thành</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Topics Grid -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Topic 1 -->
+            <div class="topic-card bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col overflow-hidden relative">
+                <div id="badge-1" class="hidden absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                    <i class="fas fa-check-circle mr-1"></i> HOÀN THÀNH
+                </div>
+                <div class="p-8 flex-1">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-6">1</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Kỹ năng Giao tiếp và Gây ảnh hưởng</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Khám phá vai trò chuyên gia TD, nguyên tắc "Start with the bottom line" và kỹ thuật xoa dịu sự tức giận.
+                    </p>
+                </div>
+                <a href="https://kiotvietlnd.github.io/cptd/domain1/topic1/" class="bg-slate-50 border-t border-slate-100 p-5 text-center font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+                    Bắt đầu học <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-card bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col overflow-hidden relative">
+                <div id="badge-2" class="hidden absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                    <i class="fas fa-check-circle mr-1"></i> HOÀN THÀNH
+                </div>
+                <div class="p-8 flex-1">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-6">2</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 text-wrap">Kỹ năng Viết, Thiết kế & Truyền tải</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Làm chủ nguyên tắc 6 chữ C, cấu trúc viết email "tin xấu" tinh tế và tối ưu hóa tài liệu đào tạo.
+                    </p>
+                </div>
+                <a href="https://kiotvietlnd.github.io/cptd/domain1/topic2/" class="bg-slate-50 border-t border-slate-100 p-5 text-center font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+                    Bắt đầu học <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="topic-card bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col overflow-hidden relative">
+                <div id="badge-3" class="hidden absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                    <i class="fas fa-check-circle mr-1"></i> HOÀN THÀNH
+                </div>
+                <div class="p-8 flex-1">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-6">3</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Giao tiếp Lời nói, Phi ngôn ngữ & Lắng nghe</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Xây dựng Professional Presence, phương pháp hỏi Socratic và nghệ thuật Active Listening.
+                    </p>
+                </div>
+                <a href="https://kiotvietlnd.github.io/cptd/domain1/topic3/" class="bg-slate-50 border-t border-slate-100 p-5 text-center font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+                    Bắt đầu học <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mt-16 bg-blue-50 border border-blue-100 p-8 rounded-3xl flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1 text-center md:text-left">
+                <h4 class="text-xl font-bold text-blue-900 mb-2">Sẵn sàng cho bài kiểm tra thật?</h4>
+                <p class="text-blue-700">Hoàn thành đủ 9 chủ đề của Domain 1 để mở khóa bộ đề thi thử tổng hợp (Mock Exam).</p>
+            </div>
+            <button class="px-8 py-3 bg-white text-blue-600 font-bold rounded-xl shadow-sm border border-blue-200 opacity-50 cursor-not-allowed">
+                Mở khóa Mock Exam
+            </button>
+        </div>
+    </main>
+
+    <footer class="text-center py-10 text-slate-400 text-sm border-t border-slate-200">
+        &copy; 2024 CPTD E-Learning Platform | Design for L&D Professionals
+    </footer>
+
+    <script>
+        // Check progress from localStorage
+        window.onload = () => {
+            let completed = 0;
+            const total = 3;
+
+            for (let i = 1; i <= total; i++) {
+                if (localStorage.getItem(`cptd_topic_${i}_complete`) === 'true') {
+                    document.getElementById(`badge-${i}`).classList.remove('hidden');
+                    completed++;
+                }
+            }
+
+            document.getElementById('completed-count').innerText = completed;
+            const progressPercent = (completed / total) * 100;
+            document.getElementById('overall-progress-bar').style.width = `${progressPercent}%`;
+        };
+    </script>
+</body>
+</html>
