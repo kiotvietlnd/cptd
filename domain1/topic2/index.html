@@ -21,7 +21,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        #reflection-input { height: 180px; resize: none; }
+        #reflection-input { height: 220px; resize: none; }
 
         .quiz-option input[type="radio"]:checked + span { color: #2563eb; font-weight: 600; }
         .quiz-option input[type="radio"]:checked + span::before { border-color: #2563eb; background-color: #2563eb; box-shadow: inset 0 0 0 3px white; }
@@ -57,44 +57,44 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main id="content-viewport" class="p-4 md:p-8 bg-slate-100">
-        <div class="max-w-5xl mx-auto h-full flex flex-col">
+    <!-- Main Content Area - Expanded with max-w-7xl and reduced padding -->
+    <main id="content-viewport" class="p-2 md:p-4 bg-slate-100">
+        <div class="max-w-7xl mx-auto h-full flex flex-col">
             
             <!-- Step 1: KNOWLEDGE -->
             <section id="task-0" class="main-step-content h-full flex flex-col hidden">
-                <div class="mb-4 flex items-center justify-between">
+                <div class="mb-2 flex items-center justify-between">
                     <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 1: Kiến thức trọng tâm</span>
                     <div class="text-sm text-slate-500 font-medium">Mục <span id="k-current-page">1</span>/3</div>
                 </div>
 
                 <!-- Card 2.1 -->
-                <div id="k-card-0" class="sub-card active bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
-                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"><i class="fas fa-file-alt text-blue-500"></i> 1. Tầm quan trọng và Các loại tài liệu</h2>
-                    <div class="prose prose-slate max-w-none text-slate-700 space-y-5 leading-relaxed text-[15px]">
+                <div id="k-card-0" class="sub-card active bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fas fa-file-alt text-blue-500"></i> 1. Tầm quan trọng và Các loại tài liệu</h2>
+                    <div class="prose prose-slate max-w-none text-slate-700 space-y-4 leading-relaxed text-[15px]">
                         <p class="bg-slate-50 p-4 rounded-lg border-l-4 border-blue-300">Chuyên gia TD phải giao tiếp bằng cách sử dụng nguyên tắc <strong class="text-blue-700">"6 chữ C"</strong> cho các bản tóm tắt, báo cáo, và kế hoạch kinh doanh.</p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <h4 class="font-bold text-blue-800 mb-2 underline">Tài liệu dài</h4>
-                                <ul class="text-sm space-y-1">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                            <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-blue-800 mb-2 underline flex items-center gap-2"><i class="fas fa-scroll text-xs"></i> Tài liệu dài</h4>
+                                <ul class="text-[14px] space-y-1.5 list-disc pl-4">
                                     <li>Kế hoạch chiến lược</li>
                                     <li>Báo cáo sáng kiến</li>
                                     <li>Hợp đồng tư vấn</li>
                                     <li>Kế hoạch quản lý dự án (RFP)</li>
                                 </ul>
                             </div>
-                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <h4 class="font-bold text-blue-800 mb-2 underline">Tài liệu ngắn</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>Kịch bản kinh doanh (Business cases)</li>
+                            <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-blue-800 mb-2 underline flex items-center gap-2"><i class="fas fa-sticky-note text-xs"></i> Tài liệu ngắn</h4>
+                                <ul class="text-[14px] space-y-1.5 list-disc pl-4">
+                                    <li>Business cases</li>
                                     <li>Mô tả công việc</li>
                                     <li>Bài blog</li>
                                     <li>Đánh giá hiệu suất</li>
                                 </ul>
                             </div>
-                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <h4 class="font-bold text-blue-800 mb-2 underline">Tài liệu đào tạo</h4>
-                                <ul class="text-sm space-y-1">
+                            <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-blue-800 mb-2 underline flex items-center gap-2"><i class="fas fa-graduation-cap text-xs"></i> Tài liệu đào tạo</h4>
+                                <ul class="text-[14px] space-y-1.5 list-disc pl-4">
                                     <li>Sổ tay học viên</li>
                                     <li>Facilitator guides</li>
                                     <li>Infographics & Video</li>
@@ -106,47 +106,51 @@
                 </div>
 
                 <!-- Card 2.2 -->
-                <div id="k-card-1" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
-                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"><i class="fas fa-check-double text-blue-500"></i> 2. Hướng dẫn Phát triển Tài liệu Viết</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-slate-700 text-[14px]">
-                        <ul class="space-y-3 list-none pl-0">
-                            <li class="flex items-start gap-2"><i class="fas fa-bullseye text-blue-500 mt-1"></i>
+                <div id="k-card-1" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fas fa-check-double text-blue-500"></i> 2. Hướng dẫn Phát triển Tài liệu Viết</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 text-slate-700 text-[15px]">
+                        <ul class="space-y-4 list-none pl-0">
+                            <li class="flex items-start gap-3 p-3 bg-white border border-slate-100 rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fas fa-bullseye text-blue-500 mt-1"></i>
                                 <span><strong>Mục đích duy nhất:</strong> Mọi câu và đoạn văn phải phù hợp với mục đích đó.</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-users text-blue-500 mt-1"></i>
+                            <li class="flex items-start gap-3 p-3 bg-white border border-slate-100 rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fas fa-users text-blue-500 mt-1"></i>
                                 <span><strong>Điều chỉnh cho người đọc:</strong> Ngôn ngữ rõ ràng, không sử dụng biệt ngữ (jargon).</span></li>
-                            <li class="flex items-start gap-2 p-2 bg-blue-50 rounded-md border border-blue-200"><i class="fas fa-leaf text-blue-600 mt-1"></i>
-                                <span><strong class="text-blue-800">Tính kinh tế (Economy):</strong> Tài liệu dài không có nghĩa là tốt; mọi từ ngữ đều phải có giá trị, súc tích. <strong class="text-xs font-bold">(Trọng tâm thi)</strong></span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-clipboard-check text-blue-500 mt-1"></i>
-                                <span><strong>Chính xác:</strong> Mọi dữ liệu, ngày tháng phải được xác minh.</span></li>
+                            <li class="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border border-blue-200 shadow-sm">
+                                <i class="fas fa-leaf text-blue-600 mt-1 text-lg"></i>
+                                <span><strong class="text-blue-800 text-lg">Tính kinh tế (Economy):</strong> Tài liệu dài không có nghĩa là tốt; mọi từ ngữ đều phải có giá trị, súc tích. <br><span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">(Tâm điểm bài thi CPTD)</span></span></li>
                         </ul>
-                        <ul class="space-y-3 list-none pl-0">
-                            <li class="flex items-start gap-2"><i class="fas fa-sitemap text-blue-500 mt-1"></i>
-                                <span><strong>Được tổ chức tốt:</strong> Trình bày dễ hiểu, thể hiện phong cách và uy tín người viết.</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-eye text-blue-500 mt-1"></i>
-                                <span><strong>Hấp dẫn về hình ảnh:</strong> Thống nhất phông chữ, sử dụng khoảng trắng, tiêu đề, và bullets.</span></li>
-                            <li class="flex items-start gap-2"><i class="fas fa-edit text-blue-500 mt-1"></i>
-                                <span><strong>Tự chỉnh sửa (Self-edit):</strong> Kiểm tra kỹ ngữ pháp hoặc nhờ người khác bình duyệt.</span></li>
+                        <ul class="space-y-4 list-none pl-0">
+                            <li class="flex items-start gap-3 p-3 bg-white border border-slate-100 rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fas fa-clipboard-check text-blue-500 mt-1"></i>
+                                <span><strong>Chính xác:</strong> Mọi dữ liệu, ngày tháng phải được xác minh chính xác.</span></li>
+                            <li class="flex items-start gap-3 p-3 bg-white border border-slate-100 rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fas fa-eye text-blue-500 mt-1"></i>
+                                <span><strong>Hấp dẫn hình ảnh:</strong> Thống nhất phông chữ, khoảng trắng, tiêu đề và bullets.</span></li>
+                            <li class="flex items-start gap-3 p-3 bg-white border border-slate-100 rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fas fa-edit text-blue-500 mt-1"></i>
+                                <span><strong>Tự chỉnh sửa:</strong> Kiểm tra kỹ ngữ pháp hoặc nhờ người khác bình duyệt (peer review).</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Card 2.3 -->
-                <div id="k-card-2" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
-                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3"><i class="fas fa-envelope-open-text text-blue-500"></i> 3. Cấu trúc các loại Thư tín (Correspondence)</h2>
-                    <div class="prose prose-slate max-w-none text-slate-700 text-[14px] space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="p-4 border border-slate-200 rounded-xl">
-                                <h4 class="font-bold text-green-700"><i class="fas fa-smile"></i> Tin tốt (Good news)</h4>
-                                <p class="text-xs italic">Mở đầu nêu tin tốt trực tiếp -> Chi tiết triển khai -> Kết thúc bằng lời chúc.</p>
+                <div id="k-card-2" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fas fa-envelope-open-text text-blue-500"></i> 3. Cấu trúc các loại Thư tín (Correspondence)</h2>
+                    <div class="prose prose-slate max-w-none text-slate-700 text-[15px] space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-5 border border-green-200 bg-green-50/30 rounded-xl">
+                                <h4 class="font-bold text-green-700 flex items-center gap-2 mb-2"><i class="fas fa-smile"></i> Tin tốt (Good news)</h4>
+                                <p class="text-sm italic leading-relaxed text-slate-600">Nêu trực tiếp tin tốt ngay đầu thư -> Cung cấp chi tiết -> Kết thúc bằng lời chúc tích cực.</p>
                             </div>
-                            <div class="p-4 border border-red-200 bg-red-50 rounded-xl">
-                                <h4 class="font-bold text-red-700"><i class="fas fa-frown"></i> Tin xấu (Bad news) - Trọng tâm</h4>
-                                <p class="text-xs italic">Dùng định dạng <strong>"làm mềm" (softening)</strong>. Mở đầu trung lập -> Lý do -> Tin xấu kẹp giữa lý do và giải pháp thay thế -> Kết tích cực.</p>
+                            <div class="p-5 border border-red-200 bg-red-50 rounded-xl shadow-sm">
+                                <h4 class="font-bold text-red-700 flex items-center gap-2 mb-2"><i class="fas fa-frown"></i> Tin xấu (Bad news) - Trọng tâm</h4>
+                                <p class="text-sm leading-relaxed text-red-900">Dùng cấu trúc <strong>"Làm mềm" (Softening)</strong>: Mở đầu trung lập -> Lý do -> <span class="underline decoration-red-400">Tin xấu kẹp giữa lý do và giải pháp thay thế</span> -> Kết thúc tích cực.</p>
                             </div>
                         </div>
-                        <div class="mt-4 p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
-                            <p class="font-bold text-amber-900"><i class="fas fa-exclamation-triangle"></i> Lưu ý về Email:</p>
-                            <p class="text-amber-800">Email rất rủi ro do người đọc tự diễn giải <strong>"giọng điệu" (tone)</strong>. Tránh dùng các từ như "unfortunatelly" (thật không may) vì nó gửi thông điệp tiêu cực quá sớm.</p>
+                        <div class="mt-2 p-5 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
+                            <p class="font-bold text-amber-900 flex items-center gap-2 mb-1"><i class="fas fa-exclamation-triangle"></i> Rủi ro trong Email:</p>
+                            <p class="text-amber-800 text-sm">Email dễ bị hiểu sai "giọng điệu" (tone). Tránh dùng "thật không may" (unfortunately) ngay từ đầu vì nó tạo cảm giác tiêu cực mạnh hơn dự kiến.</p>
                         </div>
                     </div>
                 </div>
@@ -154,69 +158,73 @@
 
             <!-- Step 2: SCENARIO -->
             <section id="task-1" class="main-step-content h-full flex flex-col hidden">
-                <div class="mb-4">
+                <div class="mb-2">
                     <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 2: Tình huống ứng dụng</span>
                 </div>
-                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 overflow-y-auto">
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
                     <div class="flex items-center gap-4 mb-6 pb-4 border-b border-slate-100">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-lg text-slate-800">Từ chối yêu cầu ngân sách đào tạo</h3>
-                            <p class="text-sm text-slate-500">Áp dụng cấu trúc "Làm mềm" (Softening message)</p>
+                            <h3 class="font-bold text-lg text-slate-800">Tình huống: Từ chối yêu cầu ngân sách đào tạo</h3>
+                            <p class="text-sm text-slate-500">Kỹ thuật viết email theo cấu trúc "Softening message"</p>
                         </div>
                     </div>
                     
                     <div class="space-y-6 text-[15px] leading-relaxed">
-                        <div class="p-6 bg-slate-50 border-l-4 border-blue-500 rounded-r-lg">
-                            <h4 class="font-bold text-blue-900 mb-4 underline">Cấu trúc email phản hồi tối ưu:</h4>
-                            <div class="space-y-4">
-                                <div class="flex gap-3">
-                                    <span class="font-bold text-blue-700 min-w-[120px]">1. Mở đầu:</span>
-                                    <span class="text-slate-700 italic">"Cảm ơn anh đã gửi đề xuất, khóa học anh chọn thực sự rất chất lượng và sát với mục tiêu phát triển của phòng ban."</span>
+                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl shadow-inner">
+                            <h4 class="font-bold text-blue-900 mb-6 text-center border-b pb-2">Email phản hồi tối ưu (Mẫu CPTD)</h4>
+                            <div class="space-y-5">
+                                <div class="flex flex-col md:flex-row gap-2">
+                                    <span class="font-bold text-blue-700 w-full md:w-32 shrink-0">1. Mở đầu:</span>
+                                    <span class="text-slate-600 italic bg-white p-2 rounded border border-slate-100 flex-1">"Cảm ơn anh đã gửi đề xuất, khóa học anh chọn thực sự rất chất lượng và sát với mục tiêu phát triển của phòng ban."</span>
                                 </div>
-                                <div class="flex gap-3 bg-white p-3 rounded-lg border border-blue-100">
-                                    <span class="font-bold text-blue-700 min-w-[120px]">2. Phần giữa:</span>
-                                    <span class="text-slate-800"><strong class="text-red-600">(Lý do + Tin xấu + Giải pháp)</strong>: "Do quỹ đào tạo đã phân bổ hết, chúng ta không thể đài thọ chi phí ngay lúc này. Tuy nhiên, tôi đã tìm được khóa học trực tuyến nội bộ tương đương và miễn phí..."</span>
+                                <div class="flex flex-col md:flex-row gap-2">
+                                    <span class="font-bold text-blue-700 w-full md:w-32 shrink-0">2. Phần giữa:</span>
+                                    <span class="text-slate-800 bg-white p-2 rounded border border-blue-200 flex-1">
+                                        <span class="text-slate-500 font-medium">(Lý do + Tin xấu + Giải pháp):</span> "Do quỹ đào tạo quý này đã được phân bổ hết, chúng ta không thể đài thọ chi phí ngay lúc này. Tuy nhiên, tôi đã tìm được khóa học trực tuyến nội bộ tương đương hoàn toàn miễn phí, hoặc ta có thể ưu tiên ngân sách quý sau cho anh..."
+                                    </span>
                                 </div>
-                                <div class="flex gap-3">
-                                    <span class="font-bold text-blue-700 min-w-[120px]">3. Kết thúc:</span>
-                                    <span class="text-slate-700 italic">"Hãy cho tôi biết anh muốn chọn phương án nào để tôi hỗ trợ thiết lập nhé."</span>
+                                <div class="flex flex-col md:flex-row gap-2">
+                                    <span class="font-bold text-blue-700 w-full md:w-32 shrink-0">3. Kết thúc:</span>
+                                    <span class="text-slate-600 italic bg-white p-2 rounded border border-slate-100 flex-1">"Hãy cho tôi biết anh muốn chọn phương án nào để tôi hỗ trợ thiết lập nhé."</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="text-center font-bold text-emerald-700">=> Kết quả: Người nhận không cảm thấy bị từ chối phũ phàng và thấy L&D đang đồng hành.</p>
+                        <p class="text-center font-bold text-emerald-700 flex items-center justify-center gap-2">
+                            <i class="fas fa-arrow-right"></i> Kết quả: Người nhận thấy được sự đồng hành thay vì cảm giác bị từ chối phũ phàng.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- Step 3: REFLECTION -->
             <section id="task-2" class="main-step-content h-full flex flex-col hidden">
-                <div class="mb-4">
+                <div class="mb-2">
                     <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 3: Chiêm nghiệm thực tế</span>
                 </div>
-                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex-1 flex flex-col">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl">
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl shrink-0">
                             <i class="fas fa-search"></i>
                         </div>
-                        <h3 class="text-xl font-medium text-slate-800 leading-snug flex-1">
-                            Kiểm tra lại phong cách viết "Tin xấu" của bạn
+                        <h3 class="text-xl font-bold text-slate-800 leading-snug flex-1">
+                            Rà soát phong cách viết "Tin xấu" của bạn
                         </h3>
                     </div>
                     
-                    <p class="text-slate-700 mb-5 leading-relaxed text-[15px] bg-slate-50 p-4 rounded-lg border border-slate-100">
-                        Hãy mở hộp thư (Sent items) và tìm một email bạn từng viết để thông báo tin xấu. Bạn có vô tình dùng từ <strong class="text-red-600">"thật không may" (unfortunately)</strong> hay nói thẳng lời từ chối ngay câu đầu tiên không? <br><br>
-                        Dựa trên cấu trúc <strong>"làm mềm"</strong>, hãy thử viết lại email đó: Làm sao để kẹp tin xấu vào giữa lý do và một giải pháp thay thế?
+                    <p class="text-slate-700 mb-4 leading-relaxed text-[15px] bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        Mở hòm thư đã gửi và tìm một email thông báo tin xấu gần nhất. Bạn có dùng từ <strong class="text-red-600">"thật không may" (unfortunately)</strong> hay từ chối ngay câu đầu không? <br><br>
+                        Hãy thử viết lại email đó theo cấu trúc <strong>"Làm mềm"</strong> (Kẹp tin xấu vào giữa lý do và giải pháp thay thế).
                     </p>
                     
                     <div class="relative flex-1">
-                        <textarea id="reflection-input" placeholder="Viết lại email của bạn tại đây..." class="w-full h-full p-5 bg-white border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-slate-700 text-[15px] shadow-inner"></textarea>
+                        <textarea id="reflection-input" placeholder="Viết lại nội dung email của bạn tại đây..." class="w-full h-full p-5 bg-white border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-slate-700 text-[15px] shadow-inner font-medium"></textarea>
                     </div>
                     <div class="flex justify-end mt-4 shrink-0">
-                        <button onclick="saveReflection()" class="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 shadow">
-                            <i class="fas fa-save"></i> Lưu & Tiếp theo
+                        <button onclick="saveReflection()" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg">
+                            <i class="fas fa-save"></i> Lưu & Vào Ôn tập
                         </button>
                     </div>
                 </div>
@@ -224,7 +232,7 @@
 
             <!-- Step 4: QUIZ -->
             <section id="task-3" class="main-step-content h-full flex flex-col hidden">
-                <div class="mb-4 flex items-center justify-between">
+                <div class="mb-2 flex items-center justify-between">
                     <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 4: Ôn tập trắc nghiệm</span>
                     <div class="text-sm text-slate-500 font-medium">Câu hỏi <span id="q-current-page">1</span>/5</div>
                 </div>
@@ -242,7 +250,7 @@
             <i class="fas fa-chevron-left"></i> Quay lại
         </button>
         
-        <div class="w-64 h-2 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+        <div class="flex-1 max-w-xl mx-8 h-2 bg-slate-100 rounded-full overflow-hidden shadow-inner">
             <div id="main-progress-bar" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
         </div>
         
@@ -335,14 +343,14 @@
                 updateUI();
             } else if (currentMainStep === 3) {
                 if (currentQuizQuestion < quizData.length - 1) {
-                    if (!document.getElementById(`feedback-${currentQuizQuestion}`).classList.contains('hidden')) {
+                    if (document.querySelector(`input[name="quiz-${currentQuizQuestion}"]:checked`)) {
                         currentQuizQuestion++;
                         updateQuizQuestions();
                     } else {
                         alert("Vui lòng chọn đáp án trước khi tiếp tục.");
                     }
                 } else {
-                    alert("Bạn đã hoàn thành bài ôn tập Chủ đề 2!");
+                    alert("Bạn đã hoàn thành toàn bộ bài học Chủ đề 2!");
                 }
             }
         }
@@ -399,11 +407,11 @@
 
         function saveReflection() {
             const input = document.getElementById('reflection-input').value.trim();
-            if (input.length < 5) {
-                alert("Vui lòng chia sẻ chiêm nghiệm của bạn.");
+            if (input.length < 10) {
+                alert("Hãy viết ít nhất một vài dòng chia sẻ kinh nghiệm của bạn.");
                 return;
             }
-            alert("Chiêm nghiệm đã lưu. Bắt đầu ôn tập ngay!");
+            alert("Chiêm nghiệm đã lưu. Bắt đầu ôn tập kiến thức ngay!");
             currentMainStep = 3;
             currentQuizQuestion = 0;
             updateUI();
@@ -421,23 +429,25 @@
                 let optionsHtml = '';
                 data.options.forEach((opt, optIndex) => {
                     optionsHtml += `
-                        <label class="quiz-option flex items-start gap-3.5 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-300 transition-all bg-white relative">
+                        <label class="quiz-option flex items-start gap-4 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-300 transition-all bg-white relative">
                             <input type="radio" name="quiz-${index}" value="${optIndex}" onclick="checkAnswer(${index}, ${optIndex})" class="sr-only">
                             <span class="w-5 h-5 rounded-full border-2 border-slate-300 mt-0.5 inline-block shrink-0 transition-all"></span>
-                            <span class="text-[14.5px] text-slate-700 leading-snug">${opt}</span>
+                            <span class="text-[15px] text-slate-700 leading-snug font-medium">${opt}</span>
                         </label>
                     `;
                 });
 
                 qDiv.innerHTML = `
-                    <p class="font-bold text-slate-800 mb-6 text-base leading-snug">Q${index+6}: ${data.q}</p>
-                    <div class="space-y-3 mb-6">
-                        ${optionsHtml}
-                    </div>
-                    <div id="feedback-${index}" class="hidden p-5 rounded-xl text-[14px] leading-relaxed border flex gap-3.5 animation: fadeIn 0.4s">
-                        <i id="feedback-icon-${index}" class="fas mt-0.5 text-lg"></i>
-                        <div>
-                            <strong id="feedback-title-${index}"></strong> <span id="feedback-text-${index}"></span>
+                    <div class="max-w-4xl mx-auto">
+                        <p class="font-bold text-slate-800 mb-8 text-lg leading-relaxed">Q${index+6}: ${data.q}</p>
+                        <div class="grid grid-cols-1 gap-4 mb-8">
+                            ${optionsHtml}
+                        </div>
+                        <div id="feedback-${index}" class="hidden p-6 rounded-xl text-[15px] leading-relaxed border flex gap-4 animation: fadeIn 0.4s">
+                            <i id="feedback-icon-${index}" class="fas mt-0.5 text-xl"></i>
+                            <div>
+                                <strong id="feedback-title-${index}" class="block text-lg mb-1"></strong> <span id="feedback-text-${index}"></span>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -461,8 +471,8 @@
 
             const options = document.querySelectorAll(`input[name="quiz-${questionIndex}"]`);
             options.forEach(opt => opt.disabled = true);
-            labels = document.querySelectorAll(`input[name="quiz-${questionIndex}"]`);
-            labels[selectedOption].parentElement.classList.add('border-slate-900', 'bg-slate-50');
+            const selectedLabel = options[selectedOption].parentElement;
+            selectedLabel.classList.add('border-slate-900', 'bg-slate-50', 'ring-2', 'ring-slate-100');
 
             feedbackDiv.classList.remove('hidden', 'bg-red-50', 'bg-green-50');
 
@@ -473,10 +483,11 @@
             } else {
                 feedbackDiv.classList.add('bg-red-50', 'border-red-200', 'text-red-900');
                 fbIcon.classList.add('fa-times-circle', 'text-red-600');
-                fbTitle.innerText = "Chưa đúng.";
-                document.querySelectorAll(`input[name="quiz-${questionIndex}"]`)[data.correct].parentElement.classList.add('border-green-400', 'bg-green-50');
+                fbTitle.innerText = "Chưa chính xác.";
+                options[data.correct].parentElement.classList.add('border-green-400', 'bg-green-50', 'ring-2', 'ring-green-100');
             }
             fbText.innerText = "Giải thích: " + data.explanation;
+            feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     </script>
 </body>
