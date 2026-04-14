@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPTD Prep - Chủ đề 3: Giao tiếp Bằng lời, Phi ngôn ngữ và Lắng nghe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+        .step-active { color: #2563eb; border-bottom: 3px solid #2563eb; }
+        
+        #content-viewport { flex: 1; overflow-y: auto; padding-bottom: 80px; }
+        .sub-card { display: none; }
+        .sub-card.active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #reflection-input { height: 220px; resize: none; }
+
+        .quiz-option input[type="radio"]:checked + span { color: #2563eb; font-weight: 600; }
+        .quiz-option input[type="radio"]:checked + span::before { border-color: #2563eb; background-color: #2563eb; box-shadow: inset 0 0 0 3px white; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Header -->
+    <header class="h-16 border-b border-slate-200 bg-white flex items-center px-6 justify-between shrink-0 shadow-sm z-10 relative">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-base text-slate-800">Chủ đề 3</h1>
+                <p class="text-xs text-slate-500 font-medium">Giao tiếp Bằng lời, Phi ngôn ngữ & Lắng nghe</p>
+            </div>
+        </div>
+        
+        <div id="step-nav" class="flex gap-6 h-full items-center">
+            <button onclick="goToMainStep(0)" id="step-btn-0" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">1</span> <span class="hidden md:block">Kiến thức</span>
+            </button>
+            <button onclick="goToMainStep(1)" id="step-btn-1" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">2</span> <span class="hidden md:block">Tình huống</span>
+            </button>
+            <button onclick="goToMainStep(2)" id="step-btn-2" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">3</span> <span class="hidden md:block">Chiêm nghiệm</span>
+            </button>
+            <button onclick="goToMainStep(3)" id="step-btn-3" class="flex items-center gap-2 h-full px-1 transition-all font-semibold text-sm hover:text-blue-600 border-b-3 border-transparent">
+                <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-xs">4</span> <span class="hidden md:block">Ôn tập</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="content-viewport" class="p-2 md:p-4 bg-slate-100">
+        <div class="max-w-7xl mx-auto h-full flex flex-col">
+            
+            <!-- Step 1: KNOWLEDGE -->
+            <section id="task-0" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-2 flex items-center justify-between">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 1: Kiến thức trọng tâm</span>
+                    <div class="text-sm text-slate-500 font-medium">Mục <span id="k-current-page">1</span>/3</div>
+                </div>
+
+                <!-- Card 3.1 -->
+                <div id="k-card-0" class="sub-card active bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fas fa-user-tie text-blue-500"></i> 1. Xây dựng Hiện diện Chuyên nghiệp (Professional Presence)</h2>
+                    <div class="prose prose-slate max-w-none text-slate-700 space-y-4 leading-relaxed text-[15px]">
+                        <p class="bg-slate-50 p-4 rounded-lg border-l-4 border-blue-300 italic">Sự hiện diện bao gồm thể chất, tinh thần, cảm xúc và tính cách; khi điều này tích cực, bạn sẽ giành được niềm tin và sự tín nhiệm.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div class="p-5 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-blue-800 mb-3 border-b pb-1">Thông điệp chiến lược</h4>
+                                <ul class="text-[14px] space-y-2 list-none pl-0">
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> <strong class="text-blue-700">Nêu kết luận trước</strong> rồi mới lập luận.</li>
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> Lọc thông tin quan trọng khỏi những thứ vụn vặt.</li>
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> Cung cấp ngữ cảnh rõ ràng.</li>
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> Dùng ngôn ngữ tích cực và đặt câu hỏi gợi mở.</li>
+                                </ul>
+                            </div>
+                            <div class="p-5 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-blue-800 mb-3 border-b pb-1">Giao tiếp Phi ngôn ngữ</h4>
+                                <ul class="text-[14px] space-y-2 list-none pl-0">
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> Duy trì tư thế tự tin (open posture).</li>
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> Vẻ ngoài chuẩn mực, chuyên nghiệp.</li>
+                                    <li class="flex gap-2"><i class="fas fa-chevron-right text-blue-400 mt-1"></i> Thực hành tôn trọng để xây dựng quan hệ (rapport).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3.2 -->
+                <div id="k-card-1" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fas fa-exchange-alt text-blue-500"></i> 2. Đưa và Nhận phản hồi (Feedback)</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 text-[15px]">
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-blue-800 flex items-center gap-2"><i class="fas fa-paper-plane"></i> Đưa phản hồi</h4>
+                            <ul class="space-y-3 list-disc pl-5">
+                                <li>Tập trung vào <strong class="text-blue-700">vấn đề/hành vi</strong> (không nhắm vào cá nhân).</li>
+                                <li>Dựa trên sự thật (facts), không dựa trên ý kiến cá nhân.</li>
+                                <li>Chia sẻ ý tưởng/thông tin thay vì áp đặt lời khuyên.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-emerald-800 flex items-center gap-2"><i class="fas fa-hand-holding-heart"></i> Nhận phản hồi</h4>
+                            <ul class="space-y-3 list-disc pl-5">
+                                <li>Lắng nghe tích cực, tôn trọng và không ngắt lời.</li>
+                                <li>Xác định rõ hành vi dẫn đến phản hồi đó.</li>
+                                <li>Tìm giải pháp cải thiện cụ thể.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                        <p class="text-blue-800 text-sm italic font-medium">Phản hồi đòi hỏi sự giao tiếp trung thực, cởi mở từ cả hai phía để đạt được mục tiêu chung của tổ chức.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3.3 -->
+                <div id="k-card-2" class="sub-card bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><i class="fas fa-question-circle text-blue-500"></i> 3. Kỹ năng đặt câu hỏi</h2>
+                    <div class="prose prose-slate max-w-none text-slate-700 text-[15px] space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                                <h4 class="font-bold text-slate-800">Câu hỏi Đóng (Closed)</h4>
+                                <p class="text-sm">Trả lời Có/Không. Dùng để lấy thông tin cụ thể, đạt thỏa thuận hoặc chốt câu chuyện.</p>
+                            </div>
+                            <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                                <h4 class="font-bold text-slate-800">Câu hỏi Mở (Open)</h4>
+                                <p class="text-sm">Hiểu vấn đề sâu, xác định nhu cầu, kiểm tra mức độ hiểu hoặc khởi đầu thảo luận.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
+                            <h4 class="font-bold text-blue-800 flex items-center gap-2 mb-2"><i class="fas fa-brain"></i> Phương pháp hỏi Socratic (Trọng tâm)</h4>
+                            <p class="text-[14px] leading-relaxed mb-3">Người hỏi <strong>giả vờ không có thông tin (uninformed)</strong> để khuyến khích học viên tự trả lời.</p>
+                            <ul class="text-xs space-y-1 list-disc pl-4 text-blue-900 font-medium">
+                                <li>Kiểm tra giả định & làm rõ chủ đề phức tạp.</li>
+                                <li>Phơi bày mâu thuẫn để người học tự nhận ra sai lầm.</li>
+                                <li>Thúc đẩy tư duy phản biện (Critical thinking).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: SCENARIO -->
+            <section id="task-1" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-2">
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 2: Tình huống ứng dụng</span>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 overflow-y-auto">
+                    <div class="flex items-center gap-4 mb-6 pb-4 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-comments-dollar"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Tình huống: "Khách hàng luôn đúng"</h3>
+                            <p class="text-sm text-slate-500">Áp dụng phương pháp hỏi Socratic để thay đổi tư duy học viên</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6 text-[15px] leading-relaxed">
+                        <div class="p-5 bg-slate-100 border-l-4 border-slate-400 rounded-r-lg">
+                            <p class="font-bold text-slate-900 mb-2 underline">Bối cảnh:</p>
+                            <p class="italic text-slate-700">Trong lớp đào tạo Dịch vụ Khách hàng, học viên khăng khăng: "Khách hàng luôn đúng, nên họ đòi bồi thường vô lý thế nào mình cũng phải chiều theo..."</p>
+                        </div>
+                        
+                        <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl">
+                            <h4 class="font-bold text-blue-900 mb-4 flex items-center gap-2"><i class="fas fa-microphone"></i> Cách L&D dẫn dắt (Socratic):</h4>
+                            <div class="space-y-3">
+                                <p><strong class="text-blue-800">Giảng viên:</strong> "Ý kiến rất thú vị. Vậy giả sử một khách hàng mua sản phẩm, dùng hỏng do lỗi của họ sau 1 năm, rồi mang đến đòi hoàn tiền 100%. Nếu ta chiều theo, điều gì sẽ xảy ra với doanh thu cửa hàng?"</p>
+                                <p><strong class="text-slate-800">Học viên:</strong> "Chắc cửa hàng phá sản mất."</p>
+                                <p><strong class="text-blue-800">Giảng viên:</strong> "Vậy làm thế nào để khách hàng vẫn thấy được tôn trọng, mà cửa hàng không bị phá sản?"</p>
+                            </div>
+                        </div>
+                        <p class="text-center font-bold text-emerald-700">=> Kết quả: Giảng viên giúp học viên tự phát hiện mâu thuẫn và điều chỉnh tư duy mà không cần bác bỏ trực tiếp.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: REFLECTION -->
+            <section id="task-2" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-2">
+                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 3: Chiêm nghiệm thực tế</span>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fas fa-ear-listen"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 leading-snug flex-1">
+                            Khả năng lắng nghe và dẫn dắt của bạn
+                        </h3>
+                    </div>
+                    
+                    <div class="text-slate-700 mb-4 leading-relaxed text-[15px] bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        <p class="mb-3">Bạn thường lắng nghe ở cấp độ nào: <strong class="text-blue-600">Thụ động</strong>, <strong class="text-blue-600">Chú tâm</strong> hay <strong class="text-blue-600">Tích cực</strong> (Active listening - nghe nội dung, ý nghĩa & cảm xúc)?</p>
+                        <p class="font-bold">Khi gặp một người bảo vệ quan điểm sai lầm, thay vì phản bác "Anh sai rồi", bạn có thể tạo ra câu hỏi Socratic nào để họ tự nhận ra mâu thuẫn của chính mình?</p>
+                    </div>
+                    
+                    <div class="relative flex-1">
+                        <textarea id="reflection-input" placeholder="Ghi lại suy nghĩ hoặc một câu hỏi Socratic mẫu của bạn tại đây..." class="w-full h-full p-5 bg-white border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-slate-700 text-[15px] shadow-inner font-medium"></textarea>
+                    </div>
+                    <div class="flex justify-end mt-4 shrink-0">
+                        <button onclick="saveReflection()" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg">
+                            <i class="fas fa-save"></i> Lưu & Vào Ôn tập
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: QUIZ -->
+            <section id="task-3" class="main-step-content h-full flex flex-col hidden">
+                <div class="mb-2 flex items-center justify-between">
+                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Nhiệm vụ 4: Ôn tập trắc nghiệm</span>
+                    <div class="text-sm text-slate-500 font-medium">Câu hỏi <span id="q-current-page">1</span>/5</div>
+                </div>
+                
+                <div id="quiz-viewport" class="flex-1 min-h-0 relative">
+                    <!-- Questions injected here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="h-16 border-t border-slate-200 bg-white flex items-center px-8 justify-between shrink-0 shadow-[0_-2px_10px_rgba(0,0,0,0.03)] z-10 relative">
+        <button id="prev-btn" onclick="goBack()" class="flex items-center gap-2 text-slate-500 hover:text-slate-800 font-medium transition-all invisible rounded-lg px-3 py-1.5 hover:bg-slate-100">
+            <i class="fas fa-chevron-left"></i> Quay lại
+        </button>
+        
+        <div class="flex-1 max-w-xl mx-8 h-2 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+            <div id="main-progress-bar" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
+        </div>
+        
+        <button id="next-btn" onclick="goNext()" class="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold transition-all rounded-lg px-4 py-1.5 hover:bg-blue-50">
+            Tiếp theo <i class="fas fa-chevron-right ml-1"></i>
+        </button>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                q: "A facilitator pretends to be uninformed about a topic, asking a series of questions that gradually lead participants to uncover contradictions in their own arguments. Which questioning technique is the facilitator using?",
+                options: ["Open-ended questioning", "Closed-ended questioning", "Socratic questioning", "Rhetorical questioning"],
+                correct: 2,
+                explanation: "Phương pháp Socratic là cách người hỏi giả vờ không có thông tin để khuyến khích phản hồi, giúp người học tự khám phá mâu thuẫn trong tư duy."
+            },
+            {
+                q: "A TD professional is receiving constructive feedback from a senior manager. To reap the most benefits, what should the TD professional do while the manager is speaking?",
+                options: [
+                    "Interrupt immediately to correct factual errors.",
+                    "Explain the reasons behind choices.",
+                    "Listen actively and hold questions until all feedback is given.",
+                    "Focus on the manager's personality."
+                ],
+                correct: 2,
+                explanation: "Khi nhận phản hồi, cần lắng nghe tích cực và giữ các câu hỏi lại cho đến khi đối phương kết thúc để hiểu trọn vẹn thông điệp."
+            },
+            {
+                q: "Building a professional presence starts with formulating a strategic message. What is the recommended first step?",
+                options: [
+                    "Providing the strategic context first.",
+                    "Stating the conclusion first and then building the case.",
+                    "Sorting significant data from trivial data.",
+                    "Asking thought-provoking questions."
+                ],
+                correct: 1,
+                explanation: "Thông điệp chiến lược nên nêu kết luận trước (Bottom-line first) để định hướng tư duy cho người nghe, sau đó mới giải thích chi tiết."
+            },
+            {
+                q: "The TD professional asks, 'Do we all agree to implement this new software next Monday?' What type of question is this?",
+                options: [
+                    "Socratic question for critical thinking.",
+                    "Open-ended question for comprehension.",
+                    "Closed-ended question to reach agreement.",
+                    "Hypothetical question for brainstorming."
+                ],
+                correct: 2,
+                explanation: "Câu hỏi này có đáp án Có/Không, dùng để chốt thỏa thuận và lấy thông tin xác nhận cụ thể."
+            },
+            {
+                q: "When giving feedback to a peer, a TD professional should ensure that the feedback focuses on:",
+                options: [
+                    "Providing direct advice.",
+                    "The person's character.",
+                    "Opinions and subjective observations.",
+                    "The issues or behaviors, not the person."
+                ],
+                correct: 3,
+                explanation: "Phản hồi hiệu quả phải khách quan, nhắm vào sự việc hoặc hành vi cụ thể (issues/behaviors) thay vì phán xét cá tính người nhận."
+            }
+        ];
+
+        let currentMainStep = 0;
+        let currentKnowledgeCard = 0;
+        const totalKnowledgeCards = 3;
+        let currentQuizQuestion = 0;
+
+        window.onload = () => {
+            updateUI();
+            renderQuiz();
+        };
+
+        function goToMainStep(stepIndex) {
+            currentMainStep = stepIndex;
+            if (currentMainStep !== 0) currentKnowledgeCard = 0;
+            updateUI();
+        }
+
+        function goNext() {
+            if (currentMainStep === 0) {
+                if (currentKnowledgeCard < totalKnowledgeCards - 1) {
+                    currentKnowledgeCard++;
+                    updateKnowledgeCards();
+                } else {
+                    currentMainStep++;
+                    updateUI();
+                }
+            } else if (currentMainStep === 1) {
+                currentMainStep++;
+                updateUI();
+            } else if (currentMainStep === 3) {
+                if (currentQuizQuestion < quizData.length - 1) {
+                    if (document.querySelector(`input[name="quiz-${currentQuizQuestion}"]:checked`)) {
+                        currentQuizQuestion++;
+                        updateQuizQuestions();
+                    } else {
+                        alert("Vui lòng chọn đáp án trước khi tiếp tục.");
+                    }
+                } else {
+                    alert("Bạn đã hoàn thành bài ôn tập Chủ đề 3!");
+                }
+            }
+        }
+
+        function goBack() {
+            if (currentMainStep === 0 && currentKnowledgeCard > 0) {
+                currentKnowledgeCard--;
+                updateKnowledgeCards();
+            } else if (currentMainStep > 0) {
+                currentMainStep--;
+                if(currentMainStep === 3) currentQuizQuestion = quizData.length - 1;
+                if(currentMainStep === 0) currentKnowledgeCard = totalKnowledgeCards -1;
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            document.querySelectorAll('#step-nav button').forEach((btn, index) => {
+                btn.classList.toggle('step-active', index === currentMainStep);
+                btn.querySelector('span').classList.toggle('bg-blue-600', index === currentMainStep);
+                btn.querySelector('span').classList.toggle('text-white', index === currentMainStep);
+            });
+
+            document.querySelectorAll('.main-step-content').forEach((panel, index) => {
+                panel.classList.toggle('hidden', index !== currentMainStep);
+            });
+
+            if (currentMainStep === 0) updateKnowledgeCards();
+            if (currentMainStep === 3) updateQuizQuestions();
+
+            const progress = (currentMainStep / 3) * 100;
+            document.getElementById('main-progress-bar').style.width = `${progress}%`;
+
+            document.getElementById('prev-btn').style.visibility = (currentMainStep === 0 && currentKnowledgeCard === 0) ? 'hidden' : 'visible';
+            
+            let nextText = "Tiếp theo";
+            if (currentMainStep === 0 && currentKnowledgeCard === totalKnowledgeCards - 1) nextText = "XEM TÌNH HUỐNG";
+            if (currentMainStep === 1) nextText = "VIẾT CHIÊM NGHIỆM";
+            if (currentMainStep === 3) {
+                nextText = (currentQuizQuestion < quizData.length - 1) ? "CÂU TIẾP THEO" : "HOÀN THÀNH TOPIC";
+            }
+            
+            document.getElementById('next-btn').style.display = currentMainStep === 2 ? 'none' : 'flex';
+            document.getElementById('next-btn').innerHTML = `${nextText} <i class="fas fa-chevron-right ml-1"></i>`;
+            document.getElementById('content-viewport').scrollTop = 0;
+        }
+
+        function updateKnowledgeCards() {
+            document.querySelectorAll('#task-0 .sub-card').forEach((card, index) => {
+                card.classList.toggle('active', index === currentKnowledgeCard);
+            });
+            document.getElementById('k-current-page').innerText = currentKnowledgeCard + 1;
+        }
+
+        function saveReflection() {
+            const input = document.getElementById('reflection-input').value.trim();
+            if (input.length < 10) {
+                alert("Vui lòng ghi lại chiêm nghiệm của bạn.");
+                return;
+            }
+            alert("Chiêm nghiệm đã lưu. Vào phần ôn tập ngay!");
+            currentMainStep = 3;
+            currentQuizQuestion = 0;
+            updateUI();
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-viewport');
+            container.innerHTML = '';
+
+            quizData.forEach((data, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.id = `q-card-${index}`;
+                qDiv.className = `sub-card absolute inset-0 bg-white rounded-2xl shadow-lg border border-slate-200 p-8 overflow-y-auto ${index === 0 ? 'active' : ''}`;
+                
+                let optionsHtml = '';
+                data.options.forEach((opt, optIndex) => {
+                    optionsHtml += `
+                        <label class="quiz-option flex items-start gap-4 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-blue-300 transition-all bg-white relative">
+                            <input type="radio" name="quiz-${index}" value="${optIndex}" onclick="checkAnswer(${index}, ${optIndex})" class="sr-only">
+                            <span class="w-5 h-5 rounded-full border-2 border-slate-300 mt-0.5 inline-block shrink-0 transition-all"></span>
+                            <span class="text-[15px] text-slate-700 leading-snug font-medium">${opt}</span>
+                        </label>
+                    `;
+                });
+
+                qDiv.innerHTML = `
+                    <div class="max-w-4xl mx-auto">
+                        <p class="font-bold text-slate-800 mb-8 text-lg leading-relaxed">Q${index+11}: ${data.q}</p>
+                        <div class="grid grid-cols-1 gap-4 mb-8">
+                            ${optionsHtml}
+                        </div>
+                        <div id="feedback-${index}" class="hidden p-6 rounded-xl text-[15px] leading-relaxed border flex gap-4 animation: fadeIn 0.4s">
+                            <i id="feedback-icon-${index}" class="fas mt-0.5 text-xl"></i>
+                            <div>
+                                <strong id="feedback-title-${index}" class="block text-lg mb-1"></strong> <span id="feedback-text-${index}"></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function updateQuizQuestions() {
+            document.querySelectorAll('#quiz-viewport .sub-card').forEach((card, index) => {
+                card.classList.toggle('active', index === currentQuizQuestion);
+            });
+            document.getElementById('q-current-page').innerText = currentQuizQuestion + 1;
+        }
+
+        function checkAnswer(questionIndex, selectedOption) {
+            const data = quizData[questionIndex];
+            const feedbackDiv = document.getElementById(`feedback-${questionIndex}`);
+            const fbIcon = document.getElementById(`feedback-icon-${questionIndex}`);
+            const fbTitle = document.getElementById(`feedback-title-${questionIndex}`);
+            const fbText = document.getElementById(`feedback-text-${questionIndex}`);
+
+            const options = document.querySelectorAll(`input[name="quiz-${questionIndex}"]`);
+            options.forEach(opt => opt.disabled = true);
+            const selectedLabel = options[selectedOption].parentElement;
+            selectedLabel.classList.add('border-slate-900', 'bg-slate-50', 'ring-2', 'ring-slate-100');
+
+            feedbackDiv.classList.remove('hidden', 'bg-red-50', 'bg-green-50');
+
+            if (selectedOption === data.correct) {
+                feedbackDiv.classList.add('bg-green-50', 'border-green-200', 'text-green-900');
+                fbIcon.classList.add('fa-check-circle', 'text-green-600');
+                fbTitle.innerText = "Chính xác!";
+            } else {
+                feedbackDiv.classList.add('bg-red-50', 'border-red-200', 'text-red-900');
+                fbIcon.classList.add('fa-times-circle', 'text-red-600');
+                fbTitle.innerText = "Chưa chính xác.";
+                options[data.correct].parentElement.classList.add('border-green-400', 'bg-green-50', 'ring-2', 'ring-green-100');
+            }
+            fbText.innerText = "Giải thích: " + data.explanation;
+            feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
